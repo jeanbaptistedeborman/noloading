@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+.slideshow {
+
+	width: 100%;
+	overflow: hidden;
+}
+
+.slideshow .navigationButton {
+
+	position: absolute;
+	margin-left: 10px;
+	font-size: 12px;
+	cursor: pointer;
+	height: 22px;
+	width: 22px;
+	border-radius: 11px;
+	font-family: "Fjalla One";
+	padding-top: 1px;
+	text-align: center;
+	-webkit-transition-property: background-color, left, color;
+	-webkit-transition-duration: 1s;
+	border-color: #000;
+	border-width: 2px;
+	border-style: solid;
+	color: #000;
+	font-weight: 400;
+	box-sizing: border-box;
+	background-color: #FFF;
+}
+
+.slideshow .navigationButton:hover {
+	color: #fff;
+	background-color: #C00;
+}
+
+.slideshow .selected {
+	background-color: #C00;
+	color: #fff;
+}
+.slideshow hr {
+	position: absolute;
+	width: 100%;
+}
+
+.divider {
+	border-top: 1px solid #eee;
+	margin: 0px;
+	clear: both;
+}
+
+.slideshow .navigation {
+	position: absolute;
+	text-align: center;
+	padding: 4px;
+}
+.slideshow .legend {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 0px;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	width: 100%;
+	transition-duration: 1s;
+	transition-property: opacity, top;
+	font-size: 14px;
+}
+
+.slideshow img {
+
+	opacity: 0.1;
+	top: 0px;
+	transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+	position: absolute;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: auto;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
