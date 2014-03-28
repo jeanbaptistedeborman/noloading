@@ -63,7 +63,7 @@ var Navigation = {
 		var smallCloseButton_$ = $(SVGFactory.getCloseButton(params));
 
 		var selectionMenu = new SelectionMenu($('.header a'), smallCloseButton_$);
-		selectionMenu.XonSelect = function() {
+		selectionMenu.onSelect = function() {
 			var selection_str;
 			if (this.selection_$) {
 

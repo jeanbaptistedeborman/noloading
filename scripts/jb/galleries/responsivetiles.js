@@ -62,9 +62,8 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 			selected_$ = openItems_array[openItems_array.length - 1];
 
 		}
-		
-		
-		if (!portrait_bool && Implementation.allowChangeScrollDirection ()) {
+
+		if (!portrait_bool && Implementation.allowChangeScrollDirection()) {
 			_findDefaultWidth();
 
 			var bodyWidth_num = 0;
@@ -89,10 +88,13 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 						width_num = boxDefaultWidth_num;
 					}
 				}
+				console.log ("width_num: " + width_num);
 				bodyWidth_num += width_num;
 
 			});
-			scroll_$.width(bodyWidth_num + 400);
+				//bodyWidth_num  = 10000; 
+		
+			scroll_$.width(bodyWidth_num);
 			var margin_num = 0;
 
 			if (scrollPos !== -1) {
@@ -107,27 +109,25 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 
 		scrollPos = -1;
 
-		if ((portrait_bool || !Implementation.allowChangeScrollDirection ())) {
+		if ((portrait_bool || !Implementation.allowChangeScrollDirection())) {
 			_findDefaultHeight();
 			scroll_$.width("");
-			trace ("selected_$ : " + selected_$); 
-			trace ("boxDefaultHeight_num = "  + boxDefaultHeight_num); 		
-if (selected_$ !== undefined ) {
-	
-	
-			scrollPos = (Number(selected_$.index() - 1) * boxDefaultHeight_num) + 300;
-			trace  (scrollPos); 
-			
+			trace("selected_$ : " + selected_$);
+			trace("boxDefaultHeight_num = " + boxDefaultHeight_num);
+			if (selected_$ !== undefined) {
+
+				scrollPos = (Number(selected_$.index() - 1) * boxDefaultHeight_num) + 300;
+				trace(scrollPos);
+
 				scroll_$.animate({
-				scrollTop : scrollPos
-			}, 200)
-} else {
-	//scrollPos = 0; 
-	
-	};
+					scrollTop : scrollPos
+				}, 200)
+			} else {
+				//scrollPos = 0;
+
+			};
 
 		}
 	};
-	
 
 };

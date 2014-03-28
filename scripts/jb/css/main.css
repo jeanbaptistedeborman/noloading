@@ -205,6 +205,7 @@ descriptionContenu {
 	-webkit-transition-property: width, height, left, top;
 	-webkit-transition-duration: .5s;
 	border-radius: 3px 3px;
+	display:inline-block; 
 }
 .description span {
 	text-decoration: none;
