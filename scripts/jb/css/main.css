@@ -47,6 +47,7 @@ body {
 	background-color: #eee;
 	color: #000;
 	height: 100%;
+	text-align: center; 
 }
 .participation {
 	margin-top: 5px;
@@ -130,7 +131,7 @@ color:#333;
 	right: -9px;
 	top: -9px;
 }
-.roundButton:hover .svgClose {
+.roundButton:active .svgClose {
 	opacity: 1;
 	visibility: visible;
 }
@@ -191,6 +192,7 @@ descriptionContenu {
 }
 
 .project {
+	text-align:left; 
 	-webkit-user-select: none;
 	background-color: #fff;
 	border: 1px solid;
@@ -234,6 +236,7 @@ footer {
 	bottom: 0px;
 	background-color: #FFF;
 	padding: 10px 0px 10px 0px;
+	text-align:left; 
 }
 footer img {
 	border:none;

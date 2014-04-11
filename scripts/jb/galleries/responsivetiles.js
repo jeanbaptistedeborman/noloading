@@ -39,7 +39,8 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 	};
 	var _findDefaultWidth = function() {
 
-		if (true || !boxDefaultWidth_num || boxDefaultWidth_num < 100) {
+
+		if (!boxDefaultWidth_num || boxDefaultWidth_num < 100) {
 			var testWidth_num = 100000;
 			project_$.each(function(index, element) {
 				var element_$ = $(element);
@@ -65,35 +66,38 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 
 		if (!portrait_bool && Implementation.allowChangeScrollDirection()) {
 			_findDefaultWidth();
-
+			
 			var bodyWidth_num = 0;
 			scrollPos = -1;
 			items_$.each(function(index, element) {
+				var width_num = 0;
 
 				var element_$ = $(element);
 				var selected_bool = ArrayTools.contains(openItems_array, element_$, true);
 
-				var width_num = 0;
 
 				if (selected_bool) {
 					scrollPos = element_$.index() * boxDefaultWidth_num;
-					var margins_num = Number(element_$.css ('margin').split ('px')[0]) * 2;
+					var margins_num = Number(element_$.css ('marginLeft').split ('px')[0]) * 2;
+					trace ("margin css : " + element_$.css ('margin'));
 					var baseWidth_str = element.style.width;
+					trace ("SELECTED MARGIN : " + margins_num);
 					width_num = Number(baseWidth_str.split ('px')[0]) + margins_num;
 				} else {
 					if (element_$.width() > boxDefaultWidth_num) {
 						width_num = element_$.width();
-
 					} else {
 						width_num = boxDefaultWidth_num;
 					}
 				}
-				console.log ("width_num: " + width_num);
+				
+				
+				trace ("WIDTH:" + width_num); 
 				bodyWidth_num += width_num;
 
 			});
 				//bodyWidth_num  = 10000; 
-		
+			trace ("TOTAL:" + bodyWidth_num); 
 			scroll_$.width(bodyWidth_num);
 			var margin_num = 0;
 

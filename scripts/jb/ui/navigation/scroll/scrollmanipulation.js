@@ -12,23 +12,12 @@
 
 function ScrollManipulation(target_$, uiElements, container_width) {"use strict";
 
-	var evaluateActiveArrows = function () {
+	this.evaluateActiveArrows = function (position) {
 		
-		
-		
-	};
-
-
-	this.swipe = function(direction_int, distance_num) {
-		var n, 
-		maxScroll = target_$.width () - container_width,  
+		var maxScroll = target_$.width () - container_width,  
 		minScroll = 0; 
-		trace (target_$.width ()); 
-		trace (maxScroll+ " / " + target_$.scrollLeft ());  
-		//minScroll = target_$.w
 		
-		
-		var scrollLeft = target_$.scrollLeft() + (distance_num * direction_int);
+		var scrollLeft = target_$.scrollLeft() + (position);
 
 		if (scrollLeft >= maxScroll) {
 			
@@ -45,8 +34,20 @@ function ScrollManipulation(target_$, uiElements, container_width) {"use strict"
 		}  else {
 			uiElements.leftButton_$.show (); 
 			
-		} 
+		}
 		
+	};
+
+
+	this.swipe = function(direction_int, distance_num) {
+		var n;
+		//minScroll = target_$.w
+		
+		var position_num = distance_num * direction_int; 
+		
+		
+		 this.evaluateActiveArrows (distance_num * direction_int); 
+		var scrollLeft = target_$.scrollLeft() + (position_num);
 		//trace('scrollLeft : ' + scrollLeft);
 		
 		target_$.stop ().animate({

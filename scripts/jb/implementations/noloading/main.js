@@ -117,6 +117,7 @@ return allow_bool;
 			slideshows_array.push(slideshow);
 			this_$.append(closeButton_$);
 			this_$.append(this_$.find(".linkButton"));
+			Navigation.scrollManipulation.evaluateActiveArrows (); 
 		}
 
 	},

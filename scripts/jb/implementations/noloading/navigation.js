@@ -50,7 +50,7 @@ var Navigation = {
 				}; 
 				trace (tag_str); 
 
-		this.bodyScrollNav = new ScrollManipulation($(tag_str), uiElements, window.innerWidth);
+		this.scrollManipulation = new ScrollManipulation($(tag_str), uiElements, window.innerWidth);
 
 		
 	
@@ -108,7 +108,7 @@ var Navigation = {
 					}, 100);
 
 				}
-					trace ($(".participation" + selection_str).length ); 
+			
 					$(".participation .on").removeClass ("on");
 				
 				$(".participation" + selection_str).addClass ("on"); 
@@ -125,7 +125,7 @@ var Navigation = {
 		var scroll_dist = $(window).innerWidth() - 200;
 
 		/*Why do I need the reference to Navigation ?  Solution to test : wrap this in a function */
-		Navigation.bodyScrollNav.swipe(direction_int, scroll_dist);
+		Navigation.scrollManipulation.swipe(direction_int, scroll_dist);
 
 	}
 };
