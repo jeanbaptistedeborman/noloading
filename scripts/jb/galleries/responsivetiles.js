@@ -81,7 +81,7 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 					var margins_num = Number(element_$.css ('marginLeft').split ('px')[0]) * 2;
 					trace ("margin css : " + element_$.css ('margin'));
 					var baseWidth_str = element.style.width;
-					trace ("SELECTED MARGIN : " + margins_num);
+				
 					width_num = Number(baseWidth_str.split ('px')[0]) + margins_num;
 				} else {
 					if (element_$.width() > boxDefaultWidth_num) {
@@ -90,14 +90,9 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 						width_num = boxDefaultWidth_num;
 					}
 				}
-				
-				
-				trace ("WIDTH:" + width_num); 
 				bodyWidth_num += width_num;
 
-			});
-				//bodyWidth_num  = 10000; 
-			trace ("TOTAL:" + bodyWidth_num); 
+			}); 
 			scroll_$.width(bodyWidth_num);
 			var margin_num = 0;
 

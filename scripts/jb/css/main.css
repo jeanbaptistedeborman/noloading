@@ -356,12 +356,26 @@ body {
 }
 
 /*Test responsive*/
+
+.responsiveV  .project {
+	width: 90%;
+	overflow: visible;
+	margin: 50px auto 15px auto;
+	height:auto; 
+}
+
 .responsiveV .project .description {
-	position: relative;
-	width: 67%;
-	padding-left: 2%;
-	display: block;
+	
+	width: 68%;
+	position:static; 
+	top:0px; 
+	left:0px; 
+	Xpadding-left: 2%;
+	margin-left:33%; 
+	Xdisplay: block;
 	overflow: hidden;
+	background-color:#CC0000;
+	 
 }
 
 .responsiveV  #container {
@@ -375,11 +389,7 @@ body {
 	float: left;
 }
 
-.responsiveV  .project {
-	width: 90%;
-	overflow: visible;
-	margin: 50px auto 15px auto;
-}
+
 .responsiveV  .project .subtitle {
 	box-sizing: border-box;
 	width: 100%;
