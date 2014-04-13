@@ -323,7 +323,7 @@ body {
 }
 
 .description {
-	width: 400px;
+	width: 50%;   
 	margin: 30px 0px 0px 320px;
 }
 #container {
@@ -333,18 +333,22 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	border-width: 0px 1px 0px 0px;
+	border-width: 0px 1px 1px 0px;
 	width: 300px;
 	height: 225px;
 	float: left;
 	z-index: 2;
+	Xheight:100%; 
+	
 }
 
 .project {
 	width: 90%;
-	height: 227px;
+	height: auto;
+	min-height:227px;  
 	overflow: hidden;
-	margin: 50px auto 15px auto;
+	padding-bottom:20px; 
+	margin: 50px auto 30px auto;
 }
 .project .subtitle {
 	box-sizing: border-box;
@@ -353,6 +357,16 @@ body {
 	width: 100%;
 	padding: 0px 0px 0px 320px;
 	z-index: 1;
+}
+.svgArrow {
+		
+	visibility:hidden;  
+		
+	}
+	
+li {
+	width:auto;  
+	
 }
 
 /*Test responsive*/
@@ -406,6 +420,12 @@ body {
 	.changeScrollDirection  html {
 		width: 100%;
 	}
+	.svgArrow {
+		
+		display:block
+		
+	}
+	
 	.changeScrollDirection .header {
 		position: fixed;
 		top: 0px;
