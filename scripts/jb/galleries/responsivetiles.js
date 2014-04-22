@@ -96,12 +96,12 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 			trace("boxDefaultHeight_num = " + boxDefaultHeight_num);
 			if (selected_$ !== undefined) {
 
-				scrollPos = (Number(selected_$.index() - 1) * boxDefaultHeight_num) + 300;
+				scrollPos = selected_$.position().top; 
 				trace(scrollPos);
 
 				scroll_$.animate({
 					scrollTop : scrollPos
-				}, 200)
+				}, 200);
 			} else {
 				//scrollPos = 0;
 
