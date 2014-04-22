@@ -455,10 +455,16 @@ li {
 		bottom: 0px;
 		left: 0px;
 	}
+	
+	.changeScrollDirection #container {
+		white-space: nowrap; 
+		
+	}
 
 	.changeScrollDirection  .project {
 		top: 160px;
-		float: left;
+		Xfloat: left;
+		display:inline-black; 
 		width: 352px;
 		height: 560px;
 		margin: 0px 15px 0px 15px;

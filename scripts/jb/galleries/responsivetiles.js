@@ -67,33 +67,14 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 		if (!portrait_bool && Implementation.allowChangeScrollDirection()) {
 			_findDefaultWidth();
 			
-			var bodyWidth_num = 0;
+			var bodyWidth_numX = 0;
 			scrollPos = -1;
-			items_$.each(function(index, element) {
-				var width_num = 0;
-
-				var element_$ = $(element);
-				var selected_bool = ArrayTools.contains(openItems_array, element_$, true);
-
-
-				if (selected_bool) {
-					scrollPos = element_$.index() * boxDefaultWidth_num;
-					var margins_num = Number(element_$.css ('marginLeft').split ('px')[0]) * 2;
-					trace ("margin css : " + element_$.css ('margin'));
-					var baseWidth_str = element.style.width;
+			
+			if (selected_$) {
+				scrollPos = selected_$.index() * boxDefaultWidth_num; 
 				
-					width_num = Number(baseWidth_str.split ('px')[0]) + margins_num;
-				} else {
-					if (element_$.width() > boxDefaultWidth_num) {
-						width_num = element_$.width();
-					} else {
-						width_num = boxDefaultWidth_num;
-					}
-				}
-				bodyWidth_num += width_num;
+			} 
 
-			}); 
-			scroll_$.width(bodyWidth_num);
 			var margin_num = 0;
 
 			if (scrollPos !== -1) {
