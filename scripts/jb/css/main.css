@@ -8,6 +8,7 @@
 	position: fixed;
 	cursor: pointer;
 	display: none;
+	visibility: hidden; 
 }
 
 .svgClose {
@@ -100,7 +101,7 @@ color:#333;
 .roundButton {
 	position: relative;
 	cursor: pointer;
-	padding: 4px 8px 4px 8px;
+	padding: 4px 4px 4px 4px;
 	Xtext-decoration: underline;
 	transition-property: background-color;
 	border-width: 1px;
@@ -201,7 +202,7 @@ descriptionContenu {
 	border-radius: 0px;
 	position: relative;
 	box-sizing: border-box;
-	cursor: pointer;
+
 	transition-property: width, height, left, top;
 	transition-duration: .5s;
 	-webkit-transition-property: width, height, left, top;
@@ -209,6 +210,22 @@ descriptionContenu {
 	border-radius: 3px 3px;
 	display:inline-block; 
 }
+
+.project.closed {
+		cursor: pointer;
+	
+	
+}
+
+
+.project.closed:active {
+	background-color: #efefef; 
+	
+	
+	
+}
+
+
 .description span {
 	text-decoration: none;
 }
@@ -348,7 +365,7 @@ body {
 	min-height:227px;  
 	overflow: hidden;
 	padding-bottom:20px; 
-	margin: 50px auto 30px auto;
+	margin: 30px auto 20px auto;
 }
 .project .subtitle {
 	box-sizing: border-box;
@@ -360,7 +377,7 @@ body {
 }
 .svgArrow {
 		
-	visibility:hidden;  
+	//visibility:hidden;  
 		
 	}
 	
@@ -416,13 +433,17 @@ li {
  end portrait*/
 
 @media screen and (orientation: landscape) {
+		
+
+	
 
 	.changeScrollDirection  html {
 		width: 100%;
 	}
-	.svgArrow {
+	.changeScrollDirection .svgArrow {
 		
-		display:block
+		Xdisplay:block; 
+		visibility:visible; 
 		
 	}
 	
@@ -446,6 +467,7 @@ li {
 		border-width: 0px 0px 1px 0px;
 	}
 	.changeScrollDirection  .description {
+		white-space:normal; 
 		width: 92%;
 		margin: 0% 4% 4% 4%;
 	}
@@ -457,13 +479,20 @@ li {
 	}
 	
 	.changeScrollDirection #container {
-		white-space: nowrap; 
+		white-space: nowrap;
+		
+  
+		
+	}
+	.changeScrollDirection #container .project:last-child {
+		
+		margin-right:402px; 
 		
 	}
 
 	.changeScrollDirection  .project {
+		
 		top: 160px;
-		Xfloat: left;
 		display:inline-black; 
 		width: 352px;
 		height: 560px;
@@ -479,4 +508,11 @@ li {
 		padding: 0px 5px 0px 5px;
 	}
 
+}
+@media screen and  (max-width: 1024px) {
+ footer span {display:none}
+
+
+	
+	
 }

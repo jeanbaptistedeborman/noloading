@@ -118,7 +118,7 @@ var UserAgent = {
 	},
 
 	firefox: function (){
-		trace (navigator.userAgent); 
+
 		return navigator.userAgent.indexOf('Firefox') !== -1; 
 		
 	}, 

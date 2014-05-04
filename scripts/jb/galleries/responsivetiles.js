@@ -14,8 +14,18 @@
 
 ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 
+	
+	var context= this; 
 	var boxDefaultWidth_num;
 	var boxDefaultHeight_num;
+	
+	
+	
+	this.onScrollFinished= function () {
+		
+	
+	}; 
+	
 
 	//SPECIFIC METHODS FOR THIS PROJECT
 	var _findDefaultHeight = function() {
@@ -76,13 +86,20 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 			} 
 
 			var margin_num = 0;
+			
+			
 
 			if (scrollPos !== -1) {
+				
+				trace ("scrollPos : " + scrollPos +" / " + scroll_$[0].scrollWidth); 
+				
 				var cssMargins = parseInt(project_$.css('margin-left'), 10) * 2;
 				margin_num = (window.innerWidth - OPEN_WIDTH) / 2;
 				scroll_$.animate({
 					scrollLeft : scrollPos - margin_num
-				}, 100);
+				}, 100, function (){context.onScrollFinished (); 
+					
+					});
 			}
 
 		}
@@ -101,13 +118,13 @@ ResponsiveTiles = function(scroll_$, container_$) {"use strict";
 
 				scroll_$.animate({
 					scrollTop : scrollPos
-				}, 200);
+				}, 200, context.onScrollFinished);
 			} else {
 				//scrollPos = 0;
 
-			};
+			}
 
-		}
+		};
 	};
 
 };

@@ -35,12 +35,11 @@ var Implementation = {
 
 	},
 	allowChangeScrollDirection : function() {"use strict";
-trace ("implementation allowchange direction : " + !UserAgent.anyMobile() && window.innerHeight >= 780); 
-		var allow_bool =  !UserAgent.anyMobile() && window.innerHeight >= 780;
-		
-	 
-		$('html').toggleClass('changeScrollDirection', allow_bool);  
-return allow_bool; 
+		//trace("implementation allowchange direction : " + !UserAgent.anyMobile() && window.innerHeight >= 780);
+		var allow_bool = !UserAgent.anyMobile() && window.innerHeight >= 780;
+
+		$('html').toggleClass('changeScrollDirection', allow_bool);
+		return allow_bool;
 	},
 
 	createParticipationList : function() {"use strict";
@@ -65,8 +64,7 @@ return allow_bool;
 		});
 	},
 	closeItem : function(item_$) {"use strict";
-
-		var this_$ = $(this);
+		item_$.addClass ('closed'); 
 		item_$.removeAttr('style');
 		item_$.children().show();
 		closeButton_$.detach();
@@ -95,6 +93,7 @@ return allow_bool;
 			var this_$ = $(this);
 			this_$.unbind();
 			openItems_array.push(this_$);
+			this_$.removeClass ('closed'); 
 
 			if (ScreenTools.isPortrait() || !Implementation.allowChangeScrollDirection()) {
 				this_$.height(OPEN_HEIGHT);
@@ -117,7 +116,7 @@ return allow_bool;
 			slideshows_array.push(slideshow);
 			this_$.append(closeButton_$);
 			this_$.append(this_$.find(".linkButton"));
-			Navigation.scrollManipulation.evaluateActiveArrows (); 
+
 		}
 
 	},
@@ -175,6 +174,10 @@ $(document).ready(function() {"use strict";
 		project_$ = $('.project');
 		responsiveTiles = new ResponsiveTiles($('body,html'), $('#container'));
 
+		responsiveTiles.onScrollFinished = function() {
+		 Navigation.scrollManipulation.evaluateActiveArrows();
+
+		};
 		$('html, body').scrollLeft(0);
 
 		project_$.each(function(index, element) {
@@ -183,7 +186,9 @@ $(document).ready(function() {"use strict";
 		});
 
 		content_$ = $('.content');
+		
 		project_$.bind('mouseup touch tap', Implementation.clickBox);
+		project_$.addClass ('closed'); 
 		var params = new SVGFactory.Params();
 
 		params.flipV_bool = true;
@@ -217,6 +222,7 @@ $(document).ready(function() {"use strict";
 				element_$.text(DEFAULT_STR);
 
 			}
+
 		});
 
 		var onResize = function() {

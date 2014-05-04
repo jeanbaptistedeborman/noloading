@@ -40,7 +40,7 @@ var Navigation = {
 
 		uiElements.rightButton_$ = rightArrow_$;
 		uiElements.leftButton_$ = leftArrow_$;
-			trace ("UserAgent.mozilla () " + UserAgent.firefox ()); 
+		//trace ("UserAgent.mozilla () " + UserAgent.firefox ()); 
 		if (UserAgent.firefox ()) {
 			var tag_str = "html"; 
 			} else {
@@ -48,7 +48,7 @@ var Navigation = {
 				
 				
 				}; 
-				trace (tag_str); 
+				//trace (tag_str); 
 
 		this.scrollManipulation = new ScrollManipulation($(tag_str), uiElements, window.innerWidth);
 

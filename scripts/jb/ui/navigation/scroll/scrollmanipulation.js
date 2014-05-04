@@ -12,61 +12,42 @@
 
 function ScrollManipulation(target_$, uiElements, container_width) {"use strict";
 
-	this.evaluateActiveArrows = function (position) {
-		
-		var maxScroll = target_$.width () - container_width,  
-		minScroll = 0; 
-		
-		var scrollLeft = target_$.scrollLeft() + (position);
+	var context = this;
 
-		if (scrollLeft >= maxScroll) {
-			
-			uiElements.rightButton_$.hide (); 
-			
-		} else {
-			uiElements.rightButton_$.show (); 
-			
-		} 
-		if (scrollLeft <= minScroll) {
-			
-			uiElements.leftButton_$.hide (); 
-			
-		}  else {
-			uiElements.leftButton_$.show (); 
-			
-		}
+	this.evaluateActiveArrows = function() {
+	
+
+		var maxScroll = target_$.width() - target_$[0].scrollWidth, minScroll = 0;
+
+		var scrollLeft = target_$.scrollLeft();
 		
+
+		var left_bool = scrollLeft > minScroll;
+		var right_bool = scrollLeft < -maxScroll;  
+		
+		
+
+		
+		uiElements.rightButton_$.toggle(right_bool);
+		uiElements.leftButton_$.toggle (left_bool); 
 	};
+	this.scroll = function(distance_num) {
 
+		target_$.stop().animate({
+			scrollLeft : distance_num
+		}, 500, context.evaluateActiveArrows);
+	};
 
 	this.swipe = function(direction_int, distance_num) {
 		var n;
-		//minScroll = target_$.w
-		
-		var position_num = distance_num * direction_int; 
-		
-		
-		 this.evaluateActiveArrows (distance_num * direction_int); 
-		var scrollLeft = target_$.scrollLeft() + (position_num);
-		//trace('scrollLeft : ' + scrollLeft);
-		
-		target_$.stop ().animate({
-			scrollLeft : scrollLeft
-		}, 500);
 
-		for (n in uiElements) {
-			var uiElement_$ = uiElements[n];
-			if (uiElement_$.jquery) {
-				/* addClass does not work on SVG. Patch here : http://keith-wood.name/svg.html#dom */
-				uiElement_$.attr('class', "svgArrow active");
+		var position_num = distance_num * direction_int;
+		var scrollLeft_num = target_$.scrollLeft() + (position_num);
 
-			}
-
-		}
+		context.scroll(scrollLeft_num);
 
 	};
-	
-	
+
 }
 
 /*
